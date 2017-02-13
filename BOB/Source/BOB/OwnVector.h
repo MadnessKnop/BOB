@@ -13,11 +13,11 @@ class BOB_API OwnVector
 	float z;
 public:
 	// z vector (0,0,1)
-	static CORE_API const OwnVector UpVector;
+	const OwnVector UpVector(float xi, float yi, float zi);
 	// x vector (1,0,0)
-	static CORE_API const OwnVector ForwardVector;
+	const OwnVector ForwardVector(float xi, float yi, float zi);
 	// y vectot (0,1,0)
-	static CORE_API const OwnVector RightVector;
+	const OwnVector RightVector(float xi, float yi, float zi);
 
 public:
 	OwnVector();

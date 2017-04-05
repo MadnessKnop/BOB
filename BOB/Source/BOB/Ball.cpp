@@ -12,24 +12,16 @@ ABall::ABall()
 
 }
 
-// Called when the game starts or when spawned
-void ABall::BeginPlay()
-{
-	Super::BeginPlay();
-	
-}
 
-// Called every frame
-void ABall::Tick( float DeltaTime )
-{
-	Super::Tick( DeltaTime );
-
-}
 
 // Called to bind functionality to input
 void ABall::SetupPlayerInputComponent(class UInputComponent* InputComponent)
 {
 	Super::SetupPlayerInputComponent(InputComponent);
 
+}
+
+void ABall::MoveRight(float val)
+{
 }
 

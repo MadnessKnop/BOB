@@ -20,7 +20,7 @@ public:
 	const OwnVector RightVector(float xi, float yi, float zi);
 
 public:
-	OwnVector();
-	~OwnVector();
+	OwnVector(void);
+	//~OwnVector();
 	OwnVector(float xi, float yi, float zi);
 };

@@ -5,6 +5,7 @@
 #include "GameFramework/GameModeBase.h"
 #include "BOBGameModeBase.generated.h"
 
+
 /**
  * 
  */
@@ -18,12 +19,12 @@ class BOB_API ABOBGameModeBase : public AGameModeBase
 public:
 	ABOBGameModeBase();
 
-	//UPROPERTY(BlueprintReadWrite, EditANywhere)
-		//TSubclassOf<class UUserWidget> MainMenuWidget;
-	//UPROPERTY(BlueprintReadWrite, EditAnywhere)
-		//TSubclassOf<class UUserWidget> LevelWidget;
-	//UPROPERTY()
-		//class UUserWidget * CurrentWidget;
+		UPROPERTY(BlueprintReadWrite, EditANywhere)
+		TSubclassOf<class UUserWidget> MainMenuWidget;
+		UPROPERTY(BlueprintReadWrite, EditAnywhere)
+		TSubclassOf<class UUserWidget> LevelWidget;
+		UPROPERTY(EditAnywhere, Category=Widget)
+		class UUserWidget * CurrentWidget;
 	
 	
 	

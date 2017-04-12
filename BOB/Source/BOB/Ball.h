@@ -20,11 +20,17 @@ class BOB_API ABall : public APawn
 public:
 	// Sets default values for this pawn's properties
 	ABall();
-	// Called to bind functionality to input
-	virtual void SetupPlayerInputComponent(class UInputComponent* InputComponent) override;
+	
 
 protected:
 	void MoveRight(float val);
+
+	void MoveForward(float val);
+
+	void Jump();
+
+	// Called to bind functionality to input
+	virtual void SetupPlayerInputComponent(class UInputComponent* InputComponent) override;
 
 public:
 	FORCEINLINE class UStaticMeshComponent* GetBall() const

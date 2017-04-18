@@ -2,7 +2,7 @@
 
 #include "BOB.h"
 #include "Ball.h"
-#include "OwnVector.h"
+
 
 
 // Sets default values
@@ -13,8 +13,8 @@ ABall::ABall()
 	//Create mesh coponent for the ball
 	Ball = CreateAbstractDefaultSubobject<UStaticMeshComponent>(TEXT("Ball0"));
 	Ball->SetStaticMesh(Sphere.Object);
-	//CollisionProfile
-
+	Ball->BodyInstance.SetCollisionProfileName(UCollisionProfile::PhysicsActor_ProfileName);
+	Ball->SetSimulatePhysics(true);
 	Ball->SetNotifyRigidBodyCollision(true);
 	RootComponent = Ball;
 
@@ -33,24 +33,41 @@ ABall::ABall()
 	Camera->bUsePawnControlRotation = false;
 }
 
+void ABall::BeginPlay()
+{
+	Super::BeginPlay();
+}
 
+
+
+void ABall::Tick(float DeltaSeconds)
+{
+	Super::Tick(DeltaSeconds);
+	if (!MovementInput.IsZero())
+	{
+		MovementInput = MovementInput.SafeNormal();
+		OwnVector NewLocation = GetActorLocation();
+	}
+}
 
 // Called to bind functionality to input
 void ABall::SetupPlayerInputComponent(class UInputComponent* InputComponent)
 {
 	InputComponent->BindAxis("MoveRight", this, &ABall::MoveRight);
-
+	
 }
 
 void ABall::MoveRight(float val)
 {
-	&OwnVector::RightVector;
+	//&OwnVector::RightVector;
+	const OwnVector Move = OwnVector(0.f, 1.f, 0.f);
+	
 }
 
 void ABall::MoveForward(float val)
 {
 	const OwnVector Move = OwnVector(1.f, 0.f, 0.f);
-	
+
 }
 
 void ABall::Jump()

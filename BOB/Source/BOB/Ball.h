@@ -2,8 +2,10 @@
 
 #pragma once
 
+#include "OwnVector.h"
 #include "GameFramework/Pawn.h"
 #include "Ball.generated.h"
+
 
 UCLASS()
 class BOB_API ABall : public APawn
@@ -23,16 +25,22 @@ public:
 	
 
 protected:
+	virtual void BeginPlay() override;
+
+	OwnVector MovementInput;
+
 	void MoveRight(float val);
-
 	void MoveForward(float val);
-
 	void Jump();
 
 	// Called to bind functionality to input
-	virtual void SetupPlayerInputComponent(class UInputComponent* InputComponent) override;
+	
 
 public:
+	virtual void Tick(float DeltaSeconds) override;
+
+	virtual void SetupPlayerInputComponent(class UInputComponent* InputComponent) override;
+	
 	FORCEINLINE class UStaticMeshComponent* GetBall() const
 	{
 		return Ball;
@@ -45,5 +53,6 @@ public:
 	{
 		return Camera;
 	}
+	
 	
 };

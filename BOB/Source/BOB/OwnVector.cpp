@@ -54,7 +54,7 @@ const OwnVector OwnVector::RightVector(float xi, float yi, float zi)
 	return OwnVector(x, y, z);
 }
 
- OwnVector OwnVector::ZeroVector(float xi, float yi, float zi) const
+ const OwnVector OwnVector::ZeroVector(float xi, float yi, float zi) 
 {
 	x = 0;
 	y = 0;
